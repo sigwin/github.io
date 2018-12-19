@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Raspberry Piのkernelをビルドする | New Post</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Raspberry Piのkernelをビルドする ビルド環境： Ubuntu Server 16.04 対象： Raspberry Pi3  準備 RapberryPi側configを取得 12sudo modprobe configssudo zcat /proc/config.gz &amp;gt; rpi.config  Ubuntu側 1234567891011apt install bc gi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Raspberry Piのkernelをビルドする">
+<meta property="og:url" content="http://yoursite.com/2017/01/10/2017-01-10-kernel-build/index.html">
+<meta property="og:site_name" content="New Post">
+<meta property="og:description" content="Raspberry Piのkernelをビルドする ビルド環境： Ubuntu Server 16.04 対象： Raspberry Pi3  準備 RapberryPi側configを取得 12sudo modprobe configssudo zcat /proc/config.gz &amp;gt; rpi.config  Ubuntu側 1234567891011apt install bc gi">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-10T13:49:32.597Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Raspberry Piのkernelをビルドする">
+<meta name="twitter:description" content="Raspberry Piのkernelをビルドする ビルド環境： Ubuntu Server 16.04 対象： Raspberry Pi3  準備 RapberryPi側configを取得 12sudo modprobe configssudo zcat /proc/config.gz &amp;gt; rpi.config  Ubuntu側 1234567891011apt install bc gi">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head></html>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-2017-01-10-kernel-build" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2017/01/10/2017-01-10-kernel-build/" class="article-date">
+  <time datetime="2017-01-10T13:02:52.000Z" itemprop="datePublished">2017-01-10</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Raspberry Piのkernelをビルドする
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="Raspberry-Piのkernelをビルドする"><a href="#Raspberry-Piのkernelをビルドする" class="headerlink" title="Raspberry Piのkernelをビルドする"></a>Raspberry Piのkernelをビルドする</h3><ul>
+<li>ビルド環境： Ubuntu Server 16.04</li>
+<li>対象： Raspberry Pi3</li>
+</ul>
+<h3 id="準備"><a href="#準備" class="headerlink" title="準備"></a>準備</h3><ul>
+<li><p>RapberryPi側<br>configを取得</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe configs</span><br><span class="line">sudo zcat /proc/config.gz &gt; rpi.config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ubuntu側</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apt install bc git build-essentials</span><br><span class="line">mkdir /work</span><br><span class="line">cd /work</span><br><span class="line">git clone https://github.com/raspberrypi/tools</span><br><span class="line">git clone --depth=1 https://github.com/raspberrypi/linux</span><br><span class="line">cd linux</span><br><span class="line">cp ~/rpi.config .config</span><br><span class="line"></span><br><span class="line">export PATH=/work/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$PATH</span><br><span class="line">export ARCH=arm</span><br><span class="line">export CROSS_COMPILE=arm-linux-gnueabihf-</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="ビルド"><a href="#ビルド" class="headerlink" title="ビルド"></a>ビルド</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># make menuconfig // 設定の変更あればする</span><br><span class="line">make -j4 zImage modules dtbs</span><br><span class="line"></span><br><span class="line">export KERNEL_RELEASE=`cat include/config/kernel.release`</span><br><span class="line">export INSTALL_MOD_PATH=../$KERNEL_RELEASE</span><br><span class="line">mkdir -p $INSTALL_MOD_PATH</span><br><span class="line">mkdir -p ../$KERNEL_RELEASE/boot</span><br><span class="line">make modules</span><br><span class="line">make modules_install</span><br><span class="line">cp arch/arm/boot/Image ../$KERNEL_RELEASE/boot/kernel-$KERNEL_RELEASE.img</span><br><span class="line">cd ../</span><br><span class="line">tar zcvf $KERNEL_RELEASE.tgz $KERNEL_RELEASE</span><br></pre></td></tr></table></figure>
+<h3 id="Raspberry-Piにセットアップ"><a href="#Raspberry-Piにセットアップ" class="headerlink" title="Raspberry Piにセットアップ"></a>Raspberry Piにセットアップ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf [固めたやつ].tgz -C /root/</span><br><span class="line">cp -aR /root/xxx/* /</span><br><span class="line">vim /boot/config.txt</span><br><span class="line">kernel=kernel-x.x.x.img</span><br></pre></td></tr></table></figure>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/22/2017-01-22-debootstrap/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          debootstrapでRaspbian作成
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/04/2017-01-04-ubuntu-desktop/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Ubuntu Desktop 16.04 を Textモードで起動する
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 New Post<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

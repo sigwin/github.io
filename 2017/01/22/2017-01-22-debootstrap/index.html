@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>debootstrapでRaspbian作成 | New Post</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="debootstrapでRaspbianを作成する 作成環境： Ubuntu Server 16.04  パッケージインストール1apt -y install git qemu-user-static binfmt-support debootstrap jessieの準備1234567wget https://archive.raspbian.org/raspbian.public.keygpg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="debootstrapでRaspbian作成">
+<meta property="og:url" content="http://yoursite.com/2017/01/22/2017-01-22-debootstrap/index.html">
+<meta property="og:site_name" content="New Post">
+<meta property="og:description" content="debootstrapでRaspbianを作成する 作成環境： Ubuntu Server 16.04  パッケージインストール1apt -y install git qemu-user-static binfmt-support debootstrap jessieの準備1234567wget https://archive.raspbian.org/raspbian.public.keygpg">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-10T13:49:32.598Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="debootstrapでRaspbian作成">
+<meta name="twitter:description" content="debootstrapでRaspbianを作成する 作成環境： Ubuntu Server 16.04  パッケージインストール1apt -y install git qemu-user-static binfmt-support debootstrap jessieの準備1234567wget https://archive.raspbian.org/raspbian.public.keygpg">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head></html>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-2017-01-22-debootstrap" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2017/01/22/2017-01-22-debootstrap/" class="article-date">
+  <time datetime="2017-01-22T11:24:35.000Z" itemprop="datePublished">2017-01-22</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      debootstrapでRaspbian作成
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="debootstrapでRaspbianを作成する"><a href="#debootstrapでRaspbianを作成する" class="headerlink" title="debootstrapでRaspbianを作成する"></a>debootstrapでRaspbianを作成する</h3><ul>
+<li>作成環境： Ubuntu Server 16.04</li>
+</ul>
+<h4 id="パッケージインストール"><a href="#パッケージインストール" class="headerlink" title="パッケージインストール"></a>パッケージインストール</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt -y install git qemu-user-static binfmt-support debootstrap</span><br></pre></td></tr></table></figure>
+<h4 id="jessieの準備"><a href="#jessieの準備" class="headerlink" title="jessieの準備"></a>jessieの準備</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://archive.raspbian.org/raspbian.public.key</span><br><span class="line">gpg --import raspbian.public.key</span><br><span class="line">mkdir /rpi-root</span><br><span class="line"><span class="built_in">cd</span> /rpi-root</span><br><span class="line">debootstrap --keyring /root/.gnupg/pubring.gpg --include=ca-certificates,apt,wget --foreign --arch=armhf jessie . http://archive.raspbian.org/raspbian</span><br><span class="line">cp $(<span class="built_in">which</span> qemu-arm-static) ./usr/bin/</span><br><span class="line">chroot . debootstrap/debootstrap --second-stage --verbose</span><br></pre></td></tr></table></figure>
+<h3 id="chrootする"><a href="#chrootする" class="headerlink" title="chrootする"></a>chrootする</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mount -t sysfs sysfs sys/</span><br><span class="line">mount -t proc proc proc/</span><br><span class="line">mount -o bind /dev dev/</span><br><span class="line">mount -o bind /dev/pts dev/pts</span><br></pre></td></tr></table></figure>
+<h3 id="Raspbianの環境設定"><a href="#Raspbianの環境設定" class="headerlink" title="Raspbianの環境設定"></a>Raspbianの環境設定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo raspberry &gt; ./etc/hostname</span><br><span class="line">echo -e &quot;127.0.1.1\\traspberry&quot; &gt;&gt; ./etc/hosts</span><br><span class="line"></span><br><span class="line">echo -e &quot;deb http://ftp.jaist.ac.jp/raspbian jessie main firmware non-free \\ndeb http://mirrordirector.raspbian.org/raspbian jessie main firmware non-free \\ndeb http://archive.raspberrypi.org/debian jessie main&quot; &gt; ./etc/apt/sources.list</span><br><span class="line">echo -e &quot;\\n# Add setting\\nauto lo\\niface lo inet loopback\\n\\nauto eth0\\niface eth0 inet dhcp&quot; &gt;&gt;./etc/network/interfaces</span><br><span class="line">echo -e &quot;proc\\t\\t/proc\\tproc\\tdefaults\\t\\t0\\t0\\n/dev/mmcblk0p1\\t/boot\\tvfat\\tdefaults\\t\\t0\\t2\\n/dev/mmcblk0p2\\t/\\text4\\tdefaults,noatime\\t0\\t1\\n&quot; &gt; ./etc/fstab</span><br></pre></td></tr></table></figure>
+<h3 id="パッケージのインストール"><a href="#パッケージのインストール" class="headerlink" title="パッケージのインストール"></a>パッケージのインストール</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">chroot . wget http://archive.raspbian.org/raspbian.public.key -O - | chroot . apt-key add -</span><br><span class="line">chroot . wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | chroot . apt-key add -</span><br><span class="line"></span><br><span class="line">chroot . apt update</span><br><span class="line">chroot . apt -y upgrade</span><br><span class="line">chroot . apt install -y \</span><br><span class="line">sudo \</span><br><span class="line">openssh-server \</span><br><span class="line">usbmount \</span><br><span class="line">patch \</span><br><span class="line">less \</span><br><span class="line">console-common \</span><br><span class="line">console-data \</span><br><span class="line">console-setup \</span><br><span class="line">tzdata \</span><br><span class="line">most \</span><br><span class="line">locales \</span><br><span class="line">keyboard-configuration \</span><br><span class="line">raspi-config</span><br><span class="line"># ここでキーボードの設定があるので、適当に選ぶ。</span><br></pre></td></tr></table></figure>
+<h3 id="ユーザー設定"><a href="#ユーザー設定" class="headerlink" title="ユーザー設定"></a>ユーザー設定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chroot . useradd -m -s /bin/bash pi</span><br><span class="line">chroot . usermod -a -G sudo,staff,kmem,plugdev,audio pi</span><br><span class="line">chroot . passwd pi</span><br><span class="line"># 本家のパスワードは raspberry</span><br></pre></td></tr></table></figure>
+<h2 id="boot領域のファイル作成"><a href="#boot領域のファイル作成" class="headerlink" title="boot領域のファイル作成"></a>boot領域のファイル作成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/raspberrypi/firmware.git ~/rpi-firmware</span><br><span class="line"># ↑これものすごく時間かかる</span><br><span class="line">mkdir /rpi-boot</span><br><span class="line">mount --bind /rpi-boot/ /rpi-root/boot/</span><br><span class="line">cp -R ~/rpi-firmware/boot/* /rpi-root/boot/</span><br><span class="line">mkdir /rpi-root/lib/modules/</span><br><span class="line">cp -R ~/rpi-firmware/modules/* /rpi-root/lib/modules/</span><br></pre></td></tr></table></figure>
+<h3 id="クリーンアップ"><a href="#クリーンアップ" class="headerlink" title="クリーンアップ"></a>クリーンアップ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">chroot . apt-get clean</span><br><span class="line">chroot . apt-get autoclean</span><br><span class="line">chroot . apt-get autoremove -y</span><br><span class="line">umount ./dev/pts</span><br><span class="line">umount ./dev</span><br><span class="line">umount ./proc</span><br><span class="line">umount ./sys</span><br><span class="line">umount ./boot</span><br></pre></td></tr></table></figure>
+<ul>
+<li>この段階で /rpi-rootのバックアップをとっておくと、<br>Raspbainのベースとして使える</li>
+</ul>
+<h3 id="SDのイメージ作成"><a href="#SDのイメージ作成" class="headerlink" title="SDのイメージ作成"></a>SDのイメージ作成</h3><p>公式で配布されているイメージは下記のような構成です<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1    4194kB  70.3MB  66.1MB  primary  fat32             lba</span><br><span class="line">2    70.3MB  1390MB  1320MB  primary  ext4</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/zero of=~/rpi.img bs=1M count=4000</span><br><span class="line">losetup -f ~/rpi.img</span><br><span class="line">parted -s /dev/loop0 mklabel msdos</span><br><span class="line">parted -s /dev/loop0 unit MB mkpart primary fat16 -- 4MB 71MB</span><br><span class="line">parted -s /dev/loop0 set 1 boot on</span><br><span class="line">parted -s /dev/loop0 unit MB mkpart primary ext2 -- 71MB 99%</span><br><span class="line">losetup -d /dev/loop0</span><br><span class="line">losetup -f -P ~/rpi.img</span><br><span class="line">mkfs.vfat -n System /dev/loop0p1</span><br><span class="line">mkfs.ext4 -L Storage /dev/loop0p2</span><br><span class="line">mkdir /mnt/root</span><br><span class="line">mkdir /mnt/boot</span><br><span class="line">mount /dev/loop0p1 -o rw /mnt/boot</span><br><span class="line">mount /dev/loop0p2 -o rw /mnt/root</span><br><span class="line"></span><br><span class="line">cp -R /rpi-boot/* /mnt/boot/</span><br><span class="line">cp -R /rpi-root/* /mnt/root/</span><br><span class="line"></span><br><span class="line">umount /mnt/boot</span><br><span class="line">umount /mnt/root</span><br><span class="line"></span><br><span class="line">losetup -d /dev/loop0</span><br></pre></td></tr></table></figure>
+<h3 id="sudoで失敗する場合"><a href="#sudoで失敗する場合" class="headerlink" title="sudoで失敗する場合"></a>sudoで失敗する場合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># sdをlinuxでマウントして下記を実行したら解決するらしい</span><br><span class="line">chmod 4755 /usr/bin/sudo</span><br><span class="line">chown -R root:root /usr</span><br></pre></td></tr></table></figure>
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/2018/12/19/2018-12-19-181219/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          pyenvの導入めも
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/01/10/2017-01-10-kernel-build/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          Raspberry Piのkernelをビルドする
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 New Post<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

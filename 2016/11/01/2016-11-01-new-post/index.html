@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>New Post | New Post</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="github page と octopress のメモ設定12$ bundle exec rake setup_github_pages  githubに作成したurlを入力する 新規投稿12$ bundle exec rake &amp;quot;new_post[2016-11-01_title]&amp;quot;  source -&amp;gt; _post -&amp;gt; YYYY-MM-DD-[title].m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="New Post">
+<meta property="og:url" content="http://yoursite.com/2016/11/01/2016-11-01-new-post/index.html">
+<meta property="og:site_name" content="New Post">
+<meta property="og:description" content="github page と octopress のメモ設定12$ bundle exec rake setup_github_pages  githubに作成したurlを入力する 新規投稿12$ bundle exec rake &amp;quot;new_post[2016-11-01_title]&amp;quot;  source -&amp;gt; _post -&amp;gt; YYYY-MM-DD-[title].m">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-10T13:49:32.595Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="New Post">
+<meta name="twitter:description" content="github page と octopress のメモ設定12$ bundle exec rake setup_github_pages  githubに作成したurlを入力する 新規投稿12$ bundle exec rake &amp;quot;new_post[2016-11-01_title]&amp;quot;  source -&amp;gt; _post -&amp;gt; YYYY-MM-DD-[title].m">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head></html>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-2016-11-01-new-post" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2016/11/01/2016-11-01-new-post/" class="article-date">
+  <time datetime="2016-11-01T03:30:48.000Z" itemprop="datePublished">2016-11-01</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      New Post
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="github-page-と-octopress-のメモ"><a href="#github-page-と-octopress-のメモ" class="headerlink" title="github page と octopress のメモ"></a>github page と octopress のメモ</h3><h4 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bundle exec rake setup_github_pages</span><br><span class="line">  githubに作成したurlを入力する</span><br></pre></td></tr></table></figure>
+<h4 id="新規投稿"><a href="#新規投稿" class="headerlink" title="新規投稿"></a>新規投稿</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bundle exec rake &quot;new_post[2016-11-01_title]&quot;</span><br><span class="line">  source -&gt; _post -&gt; YYYY-MM-DD-[title].markdown を編集する</span><br></pre></td></tr></table></figure>
+<h4 id="Preview"><a href="#Preview" class="headerlink" title="Preview"></a>Preview</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bundle exec rake preview</span><br><span class="line">$ open http://localhost:4000/</span><br></pre></td></tr></table></figure>
+<h4 id="githubに登録"><a href="#githubに登録" class="headerlink" title="githubに登録"></a>githubに登録</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bundle exec rake deploy</span><br></pre></td></tr></table></figure>
+<h4 id="見た目周り"><a href="#見た目周り" class="headerlink" title="見た目周り"></a>見た目周り</h4><h5 id="テーマ変更"><a href="#テーマ変更" class="headerlink" title="テーマ変更"></a>テーマ変更</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git://github.com/bkutil/bootstrap-theme.git .themes/bootstrap-theme</span><br><span class="line">$ bundle exec rake &quot;install[bootstrap-theme]&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="favicon変更"><a href="#favicon変更" class="headerlink" title="favicon変更"></a>favicon変更</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp ~/Desktop/favicon.png source/favicon.png</span><br></pre></td></tr></table></figure>
+<h4 id="dnsを設定する"><a href="#dnsを設定する" class="headerlink" title="dnsを設定する"></a>dnsを設定する</h4><h5 id="ValueDomainにCNAMEを設定"><a href="#ValueDomainにCNAMEを設定" class="headerlink" title="ValueDomainにCNAMEを設定"></a>ValueDomainにCNAMEを設定</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cname blog sigwin.github.io.</span><br></pre></td></tr></table></figure>
+<h5 id="nslookup-にて確認"><a href="#nslookup-にて確認" class="headerlink" title="nslookup にて確認"></a>nslookup にて確認</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ nslookup blog.sigwin.net</span><br><span class="line">Non-authoritative answer:</span><br><span class="line">blog.sigwin.net		canonical name = sigwin.github.io.</span><br><span class="line">sigwin.github.io	canonical name = github.map.fastly.net.</span><br><span class="line">Name:							github.map.fastly.net</span><br><span class="line">Address: 151.101.100.133</span><br></pre></td></tr></table></figure>
+<h5 id="githubにCNAME情報をpushする"><a href="#githubにCNAME情報をpushする" class="headerlink" title="githubにCNAME情報をpushする"></a>githubにCNAME情報をpushする</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim source/CNAME</span><br><span class="line">blog.sigwin.net</span><br></pre></td></tr></table></figure>
+<h5 id="Memo"><a href="#Memo" class="headerlink" title="Memo"></a>Memo</h5><p>DNS更新前にCNAMEをpushしたらgithubから案内が送られてきた。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">The page build completed successfully, but returned the following warning:</span><br><span class="line">Your site&apos;s DNS settings are using a custom subdomain, blog.sigwin.net,</span><br><span class="line">that&apos;s set up as an A record. We recommend you change this to a CNAME record</span><br><span class="line">pointing at sigwin.github.io. For more information, see https://help.github.com/pages/.</span><br><span class="line">For information on troubleshooting Jekyll see:</span><br><span class="line">  https://help.github.com/articles/troubleshooting-jekyll-builds</span><br><span class="line">If you have any questions you can contact us by replying to this email.</span><br></pre></td></tr></table></figure></p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/2016/11/10/2016-11-10-disabled-ipv6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          サービスのIPv6を無効にする
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+
+
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 New Post<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

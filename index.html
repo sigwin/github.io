@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>New Post</title>
+  <meta name="viewport" content="width=device-width">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="New Post">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="New Post">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="New Post">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head></html>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+	</div>
+</header>
+    <div id="main">
+      
+  
+    <article id="post-2018-12-19-181219" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2018/12/19/2018-12-19-181219/" class="article-date">
+  <time datetime="2018-12-19T06:55:17.000Z" itemprop="datePublished">2018-12-19</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2018/12/19/2018-12-19-181219/">pyenvの導入めも</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="pyenvの導入めも"><a href="#pyenvの導入めも" class="headerlink" title="pyenvの導入めも"></a>pyenvの導入めも</h3><h4 id="環境"><a href="#環境" class="headerlink" title="環境"></a>環境</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ python --version</span><br><span class="line">Python 2.7.15rc1</span><br><span class="line">$ cat /etc/os-release </span><br><span class="line">NAME=&quot;Ubuntu&quot;</span><br><span class="line">VERSION=&quot;18.04.1 LTS (Bionic Beaver)&quot;</span><br><span class="line">ID=ubuntu</span><br><span class="line">ID_LIKE=debian</span><br><span class="line">PRETTY_NAME=&quot;Ubuntu 18.04.1 LTS&quot;</span><br><span class="line">VERSION_ID=&quot;18.04&quot;</span><br><span class="line">HOME_URL=&quot;https://www.ubuntu.com/&quot;</span><br><span class="line">SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;</span><br><span class="line">BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;</span><br><span class="line">PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;</span><br><span class="line">VERSION_CODENAME=bionic</span><br><span class="line">UBUNTU_CODENAME=bionic</span><br></pre></td></tr></table></figure>
+<h3 id="パッケージのインストール"><a href="#パッケージのインストール" class="headerlink" title="パッケージのインストール"></a>パッケージのインストール</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt install git gcc make libssl-dev libsqlite3-dev zlib1g-dev libbz2-dev libreadline-dev</span><br></pre></td></tr></table></figure>
+<h3 id="pyenv-の導入"><a href="#pyenv-の導入" class="headerlink" title="pyenv の導入"></a>pyenv の導入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/pyenv/pyenv.git ~/.pyenv</span><br><span class="line">$ vim ~/.profile</span><br><span class="line">export PYENV_ROOT=$HOME/.pyenv</span><br><span class="line">export PATH=$PYENV_ROOT/bin:$PATH</span><br></pre></td></tr></table></figure>
+<h3 id="pyenvで別のバージョンのpythonをインストール"><a href="#pyenvで別のバージョンのpythonをインストール" class="headerlink" title="pyenvで別のバージョンのpythonをインストール"></a>pyenvで別のバージョンのpythonをインストール</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ pyenv install 3.6.7</span><br><span class="line">$ pyenv versions</span><br><span class="line">system</span><br><span class="line">3.6.7</span><br><span class="line">$ pyenv global 3.6.7</span><br><span class="line">$ pip install --upgrade pip</span><br></pre></td></tr></table></figure>
+<h3 id="pyenv-virtualenv-の導入"><a href="#pyenv-virtualenv-の導入" class="headerlink" title="pyenv-virtualenv の導入"></a>pyenv-virtualenv の導入</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv</span><br></pre></td></tr></table></figure>
+<h3 id="作業時めも"><a href="#作業時めも" class="headerlink" title="作業時めも"></a>作業時めも</h3><ul>
+<li>独自環境を作る<br>pyenv virtualenv 3.6.7 venv</li>
+<li>作業領域で独自環境に切り替える<br>pyenv local venv</li>
+<li>独自環境を削除する<br>pyenv uninstall venv</li>
+</ul>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+    <article id="post-2017-01-22-debootstrap" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2017/01/22/2017-01-22-debootstrap/" class="article-date">
+  <time datetime="2017-01-22T11:24:35.000Z" itemprop="datePublished">2017-01-22</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2017/01/22/2017-01-22-debootstrap/">debootstrapでRaspbian作成</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="debootstrapでRaspbianを作成する"><a href="#debootstrapでRaspbianを作成する" class="headerlink" title="debootstrapでRaspbianを作成する"></a>debootstrapでRaspbianを作成する</h3><ul>
+<li>作成環境： Ubuntu Server 16.04</li>
+</ul>
+<h4 id="パッケージインストール"><a href="#パッケージインストール" class="headerlink" title="パッケージインストール"></a>パッケージインストール</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt -y install git qemu-user-static binfmt-support debootstrap</span><br></pre></td></tr></table></figure>
+<h4 id="jessieの準備"><a href="#jessieの準備" class="headerlink" title="jessieの準備"></a>jessieの準備</h4><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">wget https://archive.raspbian.org/raspbian.public.key</span><br><span class="line">gpg --import raspbian.public.key</span><br><span class="line">mkdir /rpi-root</span><br><span class="line"><span class="built_in">cd</span> /rpi-root</span><br><span class="line">debootstrap --keyring /root/.gnupg/pubring.gpg --include=ca-certificates,apt,wget --foreign --arch=armhf jessie . http://archive.raspbian.org/raspbian</span><br><span class="line">cp $(<span class="built_in">which</span> qemu-arm-static) ./usr/bin/</span><br><span class="line">chroot . debootstrap/debootstrap --second-stage --verbose</span><br></pre></td></tr></table></figure>
+<h3 id="chrootする"><a href="#chrootする" class="headerlink" title="chrootする"></a>chrootする</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mount -t sysfs sysfs sys/</span><br><span class="line">mount -t proc proc proc/</span><br><span class="line">mount -o bind /dev dev/</span><br><span class="line">mount -o bind /dev/pts dev/pts</span><br></pre></td></tr></table></figure>
+<h3 id="Raspbianの環境設定"><a href="#Raspbianの環境設定" class="headerlink" title="Raspbianの環境設定"></a>Raspbianの環境設定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo raspberry &gt; ./etc/hostname</span><br><span class="line">echo -e &quot;127.0.1.1\\traspberry&quot; &gt;&gt; ./etc/hosts</span><br><span class="line"></span><br><span class="line">echo -e &quot;deb http://ftp.jaist.ac.jp/raspbian jessie main firmware non-free \\ndeb http://mirrordirector.raspbian.org/raspbian jessie main firmware non-free \\ndeb http://archive.raspberrypi.org/debian jessie main&quot; &gt; ./etc/apt/sources.list</span><br><span class="line">echo -e &quot;\\n# Add setting\\nauto lo\\niface lo inet loopback\\n\\nauto eth0\\niface eth0 inet dhcp&quot; &gt;&gt;./etc/network/interfaces</span><br><span class="line">echo -e &quot;proc\\t\\t/proc\\tproc\\tdefaults\\t\\t0\\t0\\n/dev/mmcblk0p1\\t/boot\\tvfat\\tdefaults\\t\\t0\\t2\\n/dev/mmcblk0p2\\t/\\text4\\tdefaults,noatime\\t0\\t1\\n&quot; &gt; ./etc/fstab</span><br></pre></td></tr></table></figure>
+<h3 id="パッケージのインストール"><a href="#パッケージのインストール" class="headerlink" title="パッケージのインストール"></a>パッケージのインストール</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">chroot . wget http://archive.raspbian.org/raspbian.public.key -O - | chroot . apt-key add -</span><br><span class="line">chroot . wget http://archive.raspberrypi.org/debian/raspberrypi.gpg.key -O - | chroot . apt-key add -</span><br><span class="line"></span><br><span class="line">chroot . apt update</span><br><span class="line">chroot . apt -y upgrade</span><br><span class="line">chroot . apt install -y \</span><br><span class="line">sudo \</span><br><span class="line">openssh-server \</span><br><span class="line">usbmount \</span><br><span class="line">patch \</span><br><span class="line">less \</span><br><span class="line">console-common \</span><br><span class="line">console-data \</span><br><span class="line">console-setup \</span><br><span class="line">tzdata \</span><br><span class="line">most \</span><br><span class="line">locales \</span><br><span class="line">keyboard-configuration \</span><br><span class="line">raspi-config</span><br><span class="line"># ここでキーボードの設定があるので、適当に選ぶ。</span><br></pre></td></tr></table></figure>
+<h3 id="ユーザー設定"><a href="#ユーザー設定" class="headerlink" title="ユーザー設定"></a>ユーザー設定</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chroot . useradd -m -s /bin/bash pi</span><br><span class="line">chroot . usermod -a -G sudo,staff,kmem,plugdev,audio pi</span><br><span class="line">chroot . passwd pi</span><br><span class="line"># 本家のパスワードは raspberry</span><br></pre></td></tr></table></figure>
+<h2 id="boot領域のファイル作成"><a href="#boot領域のファイル作成" class="headerlink" title="boot領域のファイル作成"></a>boot領域のファイル作成</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/raspberrypi/firmware.git ~/rpi-firmware</span><br><span class="line"># ↑これものすごく時間かかる</span><br><span class="line">mkdir /rpi-boot</span><br><span class="line">mount --bind /rpi-boot/ /rpi-root/boot/</span><br><span class="line">cp -R ~/rpi-firmware/boot/* /rpi-root/boot/</span><br><span class="line">mkdir /rpi-root/lib/modules/</span><br><span class="line">cp -R ~/rpi-firmware/modules/* /rpi-root/lib/modules/</span><br></pre></td></tr></table></figure>
+<h3 id="クリーンアップ"><a href="#クリーンアップ" class="headerlink" title="クリーンアップ"></a>クリーンアップ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">chroot . apt-get clean</span><br><span class="line">chroot . apt-get autoclean</span><br><span class="line">chroot . apt-get autoremove -y</span><br><span class="line">umount ./dev/pts</span><br><span class="line">umount ./dev</span><br><span class="line">umount ./proc</span><br><span class="line">umount ./sys</span><br><span class="line">umount ./boot</span><br></pre></td></tr></table></figure>
+<ul>
+<li>この段階で /rpi-rootのバックアップをとっておくと、<br>Raspbainのベースとして使える</li>
+</ul>
+<h3 id="SDのイメージ作成"><a href="#SDのイメージ作成" class="headerlink" title="SDのイメージ作成"></a>SDのイメージ作成</h3><p>公式で配布されているイメージは下記のような構成です<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1    4194kB  70.3MB  66.1MB  primary  fat32             lba</span><br><span class="line">2    70.3MB  1390MB  1320MB  primary  ext4</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">dd if=/dev/zero of=~/rpi.img bs=1M count=4000</span><br><span class="line">losetup -f ~/rpi.img</span><br><span class="line">parted -s /dev/loop0 mklabel msdos</span><br><span class="line">parted -s /dev/loop0 unit MB mkpart primary fat16 -- 4MB 71MB</span><br><span class="line">parted -s /dev/loop0 set 1 boot on</span><br><span class="line">parted -s /dev/loop0 unit MB mkpart primary ext2 -- 71MB 99%</span><br><span class="line">losetup -d /dev/loop0</span><br><span class="line">losetup -f -P ~/rpi.img</span><br><span class="line">mkfs.vfat -n System /dev/loop0p1</span><br><span class="line">mkfs.ext4 -L Storage /dev/loop0p2</span><br><span class="line">mkdir /mnt/root</span><br><span class="line">mkdir /mnt/boot</span><br><span class="line">mount /dev/loop0p1 -o rw /mnt/boot</span><br><span class="line">mount /dev/loop0p2 -o rw /mnt/root</span><br><span class="line"></span><br><span class="line">cp -R /rpi-boot/* /mnt/boot/</span><br><span class="line">cp -R /rpi-root/* /mnt/root/</span><br><span class="line"></span><br><span class="line">umount /mnt/boot</span><br><span class="line">umount /mnt/root</span><br><span class="line"></span><br><span class="line">losetup -d /dev/loop0</span><br></pre></td></tr></table></figure>
+<h3 id="sudoで失敗する場合"><a href="#sudoで失敗する場合" class="headerlink" title="sudoで失敗する場合"></a>sudoで失敗する場合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># sdをlinuxでマウントして下記を実行したら解決するらしい</span><br><span class="line">chmod 4755 /usr/bin/sudo</span><br><span class="line">chown -R root:root /usr</span><br></pre></td></tr></table></figure>
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+    <article id="post-2017-01-10-kernel-build" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2017/01/10/2017-01-10-kernel-build/" class="article-date">
+  <time datetime="2017-01-10T13:02:52.000Z" itemprop="datePublished">2017-01-10</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2017/01/10/2017-01-10-kernel-build/">Raspberry Piのkernelをビルドする</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="Raspberry-Piのkernelをビルドする"><a href="#Raspberry-Piのkernelをビルドする" class="headerlink" title="Raspberry Piのkernelをビルドする"></a>Raspberry Piのkernelをビルドする</h3><ul>
+<li>ビルド環境： Ubuntu Server 16.04</li>
+<li>対象： Raspberry Pi3</li>
+</ul>
+<h3 id="準備"><a href="#準備" class="headerlink" title="準備"></a>準備</h3><ul>
+<li><p>RapberryPi側<br>configを取得</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe configs</span><br><span class="line">sudo zcat /proc/config.gz &gt; rpi.config</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Ubuntu側</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">apt install bc git build-essentials</span><br><span class="line">mkdir /work</span><br><span class="line">cd /work</span><br><span class="line">git clone https://github.com/raspberrypi/tools</span><br><span class="line">git clone --depth=1 https://github.com/raspberrypi/linux</span><br><span class="line">cd linux</span><br><span class="line">cp ~/rpi.config .config</span><br><span class="line"></span><br><span class="line">export PATH=/work/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin:$PATH</span><br><span class="line">export ARCH=arm</span><br><span class="line">export CROSS_COMPILE=arm-linux-gnueabihf-</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="ビルド"><a href="#ビルド" class="headerlink" title="ビルド"></a>ビルド</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># make menuconfig // 設定の変更あればする</span><br><span class="line">make -j4 zImage modules dtbs</span><br><span class="line"></span><br><span class="line">export KERNEL_RELEASE=`cat include/config/kernel.release`</span><br><span class="line">export INSTALL_MOD_PATH=../$KERNEL_RELEASE</span><br><span class="line">mkdir -p $INSTALL_MOD_PATH</span><br><span class="line">mkdir -p ../$KERNEL_RELEASE/boot</span><br><span class="line">make modules</span><br><span class="line">make modules_install</span><br><span class="line">cp arch/arm/boot/Image ../$KERNEL_RELEASE/boot/kernel-$KERNEL_RELEASE.img</span><br><span class="line">cd ../</span><br><span class="line">tar zcvf $KERNEL_RELEASE.tgz $KERNEL_RELEASE</span><br></pre></td></tr></table></figure>
+<h3 id="Raspberry-Piにセットアップ"><a href="#Raspberry-Piにセットアップ" class="headerlink" title="Raspberry Piにセットアップ"></a>Raspberry Piにセットアップ</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar zxvf [固めたやつ].tgz -C /root/</span><br><span class="line">cp -aR /root/xxx/* /</span><br><span class="line">vim /boot/config.txt</span><br><span class="line">kernel=kernel-x.x.x.img</span><br></pre></td></tr></table></figure>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+    <article id="post-2017-01-04-ubuntu-desktop" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2017/01/04/2017-01-04-ubuntu-desktop/" class="article-date">
+  <time datetime="2017-01-04T02:41:36.000Z" itemprop="datePublished">2017-01-04</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2017/01/04/2017-01-04-ubuntu-desktop/">Ubuntu Desktop 16.04 を Textモードで起動する</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="Ubuntu-Desktop-16-04-を-Textモードで起動する"><a href="#Ubuntu-Desktop-16-04-を-Textモードで起動する" class="headerlink" title="Ubuntu Desktop 16.04 を Textモードで起動する"></a>Ubuntu Desktop 16.04 を Textモードで起動する</h3><h4 id="grupの設定"><a href="#grupの設定" class="headerlink" title="grupの設定"></a>grupの設定</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/default/grup</span><br><span class="line">#GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;text&quot;</span><br><span class="line">$ sudo update-rc.d grub</span><br></pre></td></tr></table></figure>
+<h4 id="systemctl-の設定"><a href="#systemctl-の設定" class="headerlink" title="systemctl の設定"></a>systemctl の設定</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl enable multi-user.target</span><br><span class="line">$ sudo systemctl set-default multi-user.target</span><br></pre></td></tr></table></figure>
+<p>この2箇所の設定変更後、再起動することで、テキストモードで起動します。</p>
+<h3 id="Textモードからunityを起動する"><a href="#Textモードからunityを起動する" class="headerlink" title="Textモードからunityを起動する"></a>Textモードからunityを起動する</h3><h4 id="以下を実行する"><a href="#以下を実行する" class="headerlink" title="以下を実行する"></a>以下を実行する</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ setsid unity</span><br><span class="line">$ sudo systemctl start graphical.target</span><br></pre></td></tr></table></figure>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+    <article id="post-2016-11-10-disabled-ipv6" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2016/11/10/2016-11-10-disabled-ipv6/" class="article-date">
+  <time datetime="2016-11-10T14:16:59.000Z" itemprop="datePublished">2016-11-10</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2016/11/10/2016-11-10-disabled-ipv6/">サービスのIPv6を無効にする</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="サービスのIPv6を無効にする"><a href="#サービスのIPv6を無効にする" class="headerlink" title="サービスのIPv6を無効にする"></a>サービスのIPv6を無効にする</h3><h4 id="稼働中のIPv6サービスを探す"><a href="#稼働中のIPv6サービスを探す" class="headerlink" title="稼働中のIPv6サービスを探す"></a>稼働中のIPv6サービスを探す</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ netstat -tnap | grep tcp6</span><br></pre></td></tr></table></figure>
+<h4 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/ssh/sshd_config</span><br><span class="line"></span><br><span class="line">AddressFamily inet</span><br></pre></td></tr></table></figure>
+<h4 id="samba"><a href="#samba" class="headerlink" title="samba"></a>samba</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/etc/samba/smb.conf</span><br><span class="line"></span><br><span class="line">bind interfaces only = yes</span><br><span class="line">interfaces = eth0 127.0.0.1 xxx.yyy.zzz.www/24</span><br></pre></td></tr></table></figure>
+<h4 id="dovecot"><a href="#dovecot" class="headerlink" title="dovecot"></a>dovecot</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/dovecot/dovecot.conf</span><br><span class="line">listen = *</span><br></pre></td></tr></table></figure>
+<h4 id="postfix"><a href="#postfix" class="headerlink" title="postfix"></a>postfix</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/postfix/main.cf</span><br><span class="line">inet_protocols = ipv4</span><br></pre></td></tr></table></figure>
+<h4 id="apache2"><a href="#apache2" class="headerlink" title="apache2"></a>apache2</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/etc/apache2/ports.conf</span><br><span class="line">Listen 0.0.0.0:80</span><br><span class="line">Listen 0.0.0.0:433</span><br></pre></td></tr></table></figure>
+<p>＊見つけ次第追加する</p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+    <article id="post-2016-11-01-new-post" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2016/11/01/2016-11-01-new-post/" class="article-date">
+  <time datetime="2016-11-01T03:30:48.000Z" itemprop="datePublished">2016-11-01</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2016/11/01/2016-11-01-new-post/">New Post</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="github-page-と-octopress-のメモ"><a href="#github-page-と-octopress-のメモ" class="headerlink" title="github page と octopress のメモ"></a>github page と octopress のメモ</h3><h4 id="設定"><a href="#設定" class="headerlink" title="設定"></a>設定</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bundle exec rake setup_github_pages</span><br><span class="line">  githubに作成したurlを入力する</span><br></pre></td></tr></table></figure>
+<h4 id="新規投稿"><a href="#新規投稿" class="headerlink" title="新規投稿"></a>新規投稿</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bundle exec rake &quot;new_post[2016-11-01_title]&quot;</span><br><span class="line">  source -&gt; _post -&gt; YYYY-MM-DD-[title].markdown を編集する</span><br></pre></td></tr></table></figure>
+<h4 id="Preview"><a href="#Preview" class="headerlink" title="Preview"></a>Preview</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ bundle exec rake preview</span><br><span class="line">$ open http://localhost:4000/</span><br></pre></td></tr></table></figure>
+<h4 id="githubに登録"><a href="#githubに登録" class="headerlink" title="githubに登録"></a>githubに登録</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ bundle exec rake deploy</span><br></pre></td></tr></table></figure>
+<h4 id="見た目周り"><a href="#見た目周り" class="headerlink" title="見た目周り"></a>見た目周り</h4><h5 id="テーマ変更"><a href="#テーマ変更" class="headerlink" title="テーマ変更"></a>テーマ変更</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone git://github.com/bkutil/bootstrap-theme.git .themes/bootstrap-theme</span><br><span class="line">$ bundle exec rake &quot;install[bootstrap-theme]&quot;</span><br></pre></td></tr></table></figure>
+<h5 id="favicon変更"><a href="#favicon変更" class="headerlink" title="favicon変更"></a>favicon変更</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp ~/Desktop/favicon.png source/favicon.png</span><br></pre></td></tr></table></figure>
+<h4 id="dnsを設定する"><a href="#dnsを設定する" class="headerlink" title="dnsを設定する"></a>dnsを設定する</h4><h5 id="ValueDomainにCNAMEを設定"><a href="#ValueDomainにCNAMEを設定" class="headerlink" title="ValueDomainにCNAMEを設定"></a>ValueDomainにCNAMEを設定</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cname blog sigwin.github.io.</span><br></pre></td></tr></table></figure>
+<h5 id="nslookup-にて確認"><a href="#nslookup-にて確認" class="headerlink" title="nslookup にて確認"></a>nslookup にて確認</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$ nslookup blog.sigwin.net</span><br><span class="line">Non-authoritative answer:</span><br><span class="line">blog.sigwin.net		canonical name = sigwin.github.io.</span><br><span class="line">sigwin.github.io	canonical name = github.map.fastly.net.</span><br><span class="line">Name:							github.map.fastly.net</span><br><span class="line">Address: 151.101.100.133</span><br></pre></td></tr></table></figure>
+<h5 id="githubにCNAME情報をpushする"><a href="#githubにCNAME情報をpushする" class="headerlink" title="githubにCNAME情報をpushする"></a>githubにCNAME情報をpushする</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim source/CNAME</span><br><span class="line">blog.sigwin.net</span><br></pre></td></tr></table></figure>
+<h5 id="Memo"><a href="#Memo" class="headerlink" title="Memo"></a>Memo</h5><p>DNS更新前にCNAMEをpushしたらgithubから案内が送られてきた。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">The page build completed successfully, but returned the following warning:</span><br><span class="line">Your site&apos;s DNS settings are using a custom subdomain, blog.sigwin.net,</span><br><span class="line">that&apos;s set up as an A record. We recommend you change this to a CNAME record</span><br><span class="line">pointing at sigwin.github.io. For more information, see https://help.github.com/pages/.</span><br><span class="line">For information on troubleshooting Jekyll see:</span><br><span class="line">  https://help.github.com/articles/troubleshooting-jekyll-builds</span><br><span class="line">If you have any questions you can contact us by replying to this email.</span><br></pre></td></tr></table></figure></p>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
+  
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 New Post<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>

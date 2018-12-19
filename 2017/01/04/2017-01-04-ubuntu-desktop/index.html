@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>Ubuntu Desktop 16.04 を Textモードで起動する | New Post</title>
+  <meta name="viewport" content="width=device-width">
+  <meta name="description" content="Ubuntu Desktop 16.04 を Textモードで起動するgrupの設定1234$ sudo vim /etc/default/grup#GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;quiet splash&amp;quot;GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;text&amp;quot;$ sudo update-rc.d grub systemc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu Desktop 16.04 を Textモードで起動する">
+<meta property="og:url" content="http://yoursite.com/2017/01/04/2017-01-04-ubuntu-desktop/index.html">
+<meta property="og:site_name" content="New Post">
+<meta property="og:description" content="Ubuntu Desktop 16.04 を Textモードで起動するgrupの設定1234$ sudo vim /etc/default/grup#GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;quiet splash&amp;quot;GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;text&amp;quot;$ sudo update-rc.d grub systemc">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-10T13:49:32.596Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu Desktop 16.04 を Textモードで起動する">
+<meta name="twitter:description" content="Ubuntu Desktop 16.04 を Textモードで起動するgrupの設定1234$ sudo vim /etc/default/grup#GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;quiet splash&amp;quot;GRUB_CMDLINE_LINUX_DEFAULT=&amp;quot;text&amp;quot;$ sudo update-rc.d grub systemc">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+</head></html>
+<body>
+  <div id="container">
+    <div class="mobile-nav-panel">
+	<i class="icon-reorder icon-large"></i>
+</div>
+<header id="header">
+	<h1 class="blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<nav class="nav">
+		<ul>
+			<li><a href="/">Home</a></li><li><a href="/archives">Archives</a></li>
+			<li><a id="nav-search-btn" class="nav-icon" title="Search"></a></li>
+			
+		</ul>
+	</nav>
+	<div id="search-form-wrap">
+		<form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+	</div>
+</header>
+    <div id="main">
+      <article id="post-2017-01-04-ubuntu-desktop" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2017/01/04/2017-01-04-ubuntu-desktop/" class="article-date">
+  <time datetime="2017-01-04T02:41:36.000Z" itemprop="datePublished">2017-01-04</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 class="article-title entry-title" itemprop="name">
+      Ubuntu Desktop 16.04 を Textモードで起動する
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="Ubuntu-Desktop-16-04-を-Textモードで起動する"><a href="#Ubuntu-Desktop-16-04-を-Textモードで起動する" class="headerlink" title="Ubuntu Desktop 16.04 を Textモードで起動する"></a>Ubuntu Desktop 16.04 を Textモードで起動する</h3><h4 id="grupの設定"><a href="#grupの設定" class="headerlink" title="grupの設定"></a>grupの設定</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ sudo vim /etc/default/grup</span><br><span class="line">#GRUB_CMDLINE_LINUX_DEFAULT=&quot;quiet splash&quot;</span><br><span class="line">GRUB_CMDLINE_LINUX_DEFAULT=&quot;text&quot;</span><br><span class="line">$ sudo update-rc.d grub</span><br></pre></td></tr></table></figure>
+<h4 id="systemctl-の設定"><a href="#systemctl-の設定" class="headerlink" title="systemctl の設定"></a>systemctl の設定</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo systemctl enable multi-user.target</span><br><span class="line">$ sudo systemctl set-default multi-user.target</span><br></pre></td></tr></table></figure>
+<p>この2箇所の設定変更後、再起動することで、テキストモードで起動します。</p>
+<h3 id="Textモードからunityを起動する"><a href="#Textモードからunityを起動する" class="headerlink" title="Textモードからunityを起動する"></a>Textモードからunityを起動する</h3><h4 id="以下を実行する"><a href="#以下を実行する" class="headerlink" title="以下を実行する"></a>以下を実行する</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ setsid unity</span><br><span class="line">$ sudo systemctl start graphical.target</span><br></pre></td></tr></table></figure>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+    
+<nav id="article-nav">
+  
+    <a href="/2017/01/10/2017-01-10-kernel-build/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Raspberry Piのkernelをビルドする
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/11/10/2016-11-10-disabled-ipv6/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          サービスのIPv6を無効にする
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+    </div>
+    <div class="mb-search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+<footer id="footer">
+	<h1 class="footer-blog-title">
+		<a href="/">New Post</a>
+	</h1>
+	<span class="copyright">
+		&copy; 2018 New Post<br>
+		Modify from <a href="http://sanographix.github.io/tumblr/apollo/" target="_blank">Apollo</a> theme, designed by <a href="http://www.sanographix.net/" target="_blank">SANOGRAPHIX.NET</a><br>
+		Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+	</span>
+</footer>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+  </div>
+</body>
+</html>
