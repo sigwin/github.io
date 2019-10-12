@@ -43,6 +43,59 @@
     <div id="main">
       
   
+    <article id="post-2019-10-12-disk" class="post">
+	<footer class="entry-meta-header">
+		<span class="meta-elements date">
+			<a href="/2019/10/12/2019-10-12-disk/" class="article-date">
+  <time datetime="2019-10-12T03:27:34.000Z" itemprop="datePublished">2019-10-12</time>
+</a>
+		</span>
+		<span class="meta-elements author"></span>
+		<div class="commentscount">
+			
+		</div>
+	</footer>
+	
+	<header class="entry-header">
+		
+  
+    <h1 itemprop="name" class="entry-title">
+      <a class="article-title" href="/2019/10/12/2019-10-12-disk/">2019-10-12-disk</a>
+    </h1>
+  
+
+	</header>
+	<div class="entry-content">
+		
+    	<h3 id="ディスクの使用状況を調査する"><a href="#ディスクの使用状況を調査する" class="headerlink" title="ディスクの使用状況を調査する"></a>ディスクの使用状況を調査する</h3><p>最初は、df や du などのコマンドで調査したが、<br>dfではディスクを20GB使っているとでたのに、duで調べた結果は 9GBほどしか消費してない状態だった。<br>原因としては、削除されたファイルを開いたままとなってるプロセスがあることが原因だった。<br>調査してわかったプロセスを再起動することで、開放されてディスク消費を減らせた。</p>
+<p>コマンド結果が残ってないけど、手順だけメモしとく。</p>
+<h3 id="調査コマンド"><a href="#調査コマンド" class="headerlink" title="調査コマンド"></a>調査コマンド</h3><ul>
+<li>df -h<br>ディスクの使用状況を確認する。</li>
+<li>sudo du -sht /*<br>/ からファイル単位でディスクの消費状況を確認する<br>  最後にtotalと標示されたところが合計</li>
+<li>sudo lsof +L1<br>COMMANDと開いているファイル名がわかる。(deleted) となってたら削除済み</li>
+</ul>
+
+    
+	</div>
+	<footer class="entry-footer">
+		<div class="entry-meta-footer">
+			<span class="category">
+				
+			</span>
+			<span class="tags">
+				
+			</span>
+		</div>
+	</footer>
+	
+</article>
+
+
+	<hr class="article-devider">
+
+
+
+  
     <article id="post-2018-12-19-181219" class="post">
 	<footer class="entry-meta-header">
 		<span class="meta-elements date">
